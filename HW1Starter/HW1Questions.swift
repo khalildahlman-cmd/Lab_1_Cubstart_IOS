@@ -49,6 +49,7 @@ class HW1Questions {
     /// - Returns: A boolean. True if we can escape. False otherwise.
     func canEscape(withDirections directions: [[Direction]], startingIndex: Int, escapeIndex: Int) -> Bool {
         for listss in directions{
+            var isValid = true
             var num = startingIndex
             for direction in listss {
                 if direction == .right{
@@ -58,10 +59,10 @@ class HW1Questions {
                     num -= 1
                 }
                 else{
-                    break
+                    isValid = false
                 }
             }
-            if num == escapeIndex{
+            if num == escapeIndex && isValid{
                 return true
             }
         }
